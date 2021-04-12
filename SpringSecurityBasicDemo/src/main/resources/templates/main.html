@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>健康档案</title>
+    </head>
+    <body>
+        <h2 th:text="'你好, ' + ${username} + '!'" />
+        <p><a href="/logout">退出登录</a></p>
+
+        <h2>个人健康档案:</h2>
+        <table>
+            <thead>
+            <tr>
+                <th> 健康指标名称 </th>
+                <th> 健康指标值 </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:if="${healthRecords.empty}">
+                <td colspan="2"> 无健康指标 </td>
+            </tr>
+            <tr th:each="healthRecord : ${healthRecords}">
+                <td><span th:text="${healthRecord.name}"> 健康指标名称 </span></td>
+                <td><span th:text="${healthRecord.value}"> 健康指标值 </span></td>
+            </tr>
+            </tbody>
+        </table>
+    </body>
+</html>
