@@ -1,0 +1,16 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    name: auth server application
+    version: 1.0
+
+app1:
+  profile-uri: http://localhost:8080/app1/system/profile
+
+app2:
+  profile-uri: http://localhost:8090/app2/system/profile
+
+
+
