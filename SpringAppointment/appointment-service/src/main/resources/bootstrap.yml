@@ -1,0 +1,48 @@
+spring:
+  application:
+    name: appointmentservice
+  profiles:
+    active:
+      default
+
+# 熔断器
+#resilience4j.circuitbreaker:
+#  configs:
+#    default:
+#      registerHealthIndicator: true # 健康监测
+#      ringBufferSizeInClosedState: 5 # 熔断器关闭时的缓冲区大小
+#      ringBufferSizeInHalfOpenState: 3 # 熔断器半开时的缓冲区大小
+#      waitDurationInOpenState: 10s # 熔断器从打开到半开需要的时间
+#      failureRateThreshold: 50 # 熔断器打开的失败阈值
+#      recordExceptions: # 记录的异常
+#        - org.springframework.web.client.HttpServerErrorException
+#        - java.io.IOException
+#        - java.util.concurrent.TimeoutException
+#        - org.springframework.web.client.ResourceAccessException
+#  instances:
+#    appointmentService:
+#      baseConfig: default
+#      waitDurationInOpenState: 5s
+#      failureRateThreshold: 20
+
+
+
+
+
+
+
+
+
+#resilience4j.circuitbreaker:
+#  instances:
+#    appointmentService:
+#      registerHealthIndicator: true # 健康监测
+#      ringBufferSizeInClosedState: 5 # 熔断器关闭时的缓冲区大小
+#      ringBufferSizeInHalfOpenState: 3 # 熔断器半开时的缓冲区大小
+#      waitDurationInOpenState: 10s # 熔断器从打开到半开需要的时间
+#      failureRateThreshold: 50 # 熔断器打开的失败阈值
+#      recordExceptions: # 记录的异常
+#        - org.springframework.web.client.HttpServerErrorException
+#        - java.io.IOException
+#        - java.util.concurrent.TimeoutException
+#        - org.springframework.web.client.ResourceAccessException

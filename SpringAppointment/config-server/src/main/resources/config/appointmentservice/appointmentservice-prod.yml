@@ -1,0 +1,13 @@
+appointment:
+  order:
+    count: 20
+
+spring:
+  jpa:
+    database: MYSQL
+  datasource:
+    platform: mysql
+    url: jdbc:mysql://119.3.52.175:3306/appointment-appointment
+    username: root
+    password: 1qazxsw2#edc
+    driver-class-name: com.mysql.jdbc.Driver

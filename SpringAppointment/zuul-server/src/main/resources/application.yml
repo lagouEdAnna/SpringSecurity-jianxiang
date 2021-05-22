@@ -1,0 +1,55 @@
+server:
+  port: 5555
+
+
+logging:
+    level:
+      com.netflix: WARN
+      org.springframework.web: WARN
+      com.appointment: INFO
+
+eureka:
+  instance:
+    preferIpAddress: true
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+        defaultZone: http://localhost:8761/eureka/
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+zuul:
+  routes:
+    doctorservice: /doctor/**
+    appointmentservice: /appointment/**
+
+    users:
+      path: /myuser/**
+      url: http://example.com/users_service
+
+#     Ribbon
+    userservice:
+      path: /userstatic/**
+      serviceId: myuserservice
+  ignored-services: '*'
+  prefix: /api
+  host:
+    connect-timeout-millis: 10000
+    socket-timeout-millis: 60000
+
+myuserservice:
+  ribbon:
+    listOfServers: http://userservice:8080, http://userservice:8081
+
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 10000
