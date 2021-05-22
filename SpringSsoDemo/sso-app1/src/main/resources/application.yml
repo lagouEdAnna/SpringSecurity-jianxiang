@@ -1,0 +1,23 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /app1
+
+spring:
+  application:
+    name: app1
+    version: 1.0
+
+security:
+  oauth2:
+    client:
+      client-id: app1
+      client-secret: app1_secret
+      access-token-uri: http://localhost:8888/oauth/token
+      user-authorization-uri: http://localhost:8888/oauth/authorize
+    resource:
+      jwt:
+        key-uri: http://localhost:8888/oauth/token_key
+
+app2:
+  profile-uri: http://localhost:8090/app2/system/profile
